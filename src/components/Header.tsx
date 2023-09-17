@@ -29,6 +29,13 @@ const Header = () => {
         </div>
 
         {/* Cart */}
+        <div className="flex justify-center items-center bg-black hover:bg-slate-950 text-slate-100 hover:text-white rounded-full px-4 py-1.5 border-[1px] border-black hover:border-blue-500 duration-200 cursor-pointer relative">
+          <BsCart className="text-xl" />
+          <p className="font-semibold text-sm">$0.00</p>
+          <span className="bg-white rounded-full text-blue-600 text-xs font-semibold absolute -right-2 -top-1 w-5 h-5 flex justify-center items-center shadow-xl shadow-black">
+            0
+          </span>
+        </div>
       </Container>
     </div>
   );
