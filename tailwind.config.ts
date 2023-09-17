@@ -12,6 +12,12 @@ const config: Config = {
       fontFamily: {
         bodyFont: ["Urbanist", ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        bodyColor: "#fbfaf7",
+        bgLight: "#1010100d",
+        darkText: "#242424",
+        lightText: "#a5a5a5",
+      },
     },
   },
   plugins: [],
