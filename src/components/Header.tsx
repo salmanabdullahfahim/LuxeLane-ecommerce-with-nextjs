@@ -2,6 +2,7 @@ import React from "react";
 import Container from "./Container";
 import Logo from "./Logo";
 import { BsCart, BsSearch } from "react-icons/bs";
+import { AiOutlineUser } from "react-icons/ai";
 
 const Header = () => {
   return (
@@ -21,6 +22,11 @@ const Header = () => {
         </div>
 
         {/* signin/signup */}
+
+        <div className="flex justify-center items-center bg-bgLight text-gray-500 p-1.5 rounded-full border-[1px] border-gray-200 hover:border-blue-500 hover:bg-white duration-200 cursor-pointer">
+          <AiOutlineUser className="text-2xl" />
+          <p className="font-semibold text-sm">Login/SignUp</p>
+        </div>
 
         {/* Cart */}
       </Container>
