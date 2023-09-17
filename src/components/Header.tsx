@@ -11,7 +11,7 @@ const Header = () => {
         <Logo />
 
         {/* Search box */}
-        <div className="w-full hidden md:flex items-center gap-x-1 border-[1px] border-darkText/50 rounded-full px-4 py-1.5 focus-within:border-blue-500 group">
+        <div className="w-full hidden md:flex items-center gap-x-2 border-[1px] border-darkText/50 rounded-full px-4 py-1.5 focus-within:border-blue-500 group">
           <BsSearch className="text-gray-500 group-focus-within:text-darkText duration-200" />
           <input
             type="text"
