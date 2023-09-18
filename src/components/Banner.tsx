@@ -11,16 +11,22 @@ const Banner = () => {
   const PrevArrow = (props: any) => {
     const { onClick } = props;
     return (
-      <div className="bg-slate-100 hover:bg-white rounded-full cursor-pointer">
-        <PiCaretLeftLight />
+      <div
+        className="bg-slate-100 hover:bg-white rounded-full cursor-pointer absolute right-5 top-1/2 z-20 flex justify-center items-center p-3"
+        onClick={onClick}
+      >
+        <PiCaretRightLight />
       </div>
     );
   };
   const NextArrow = (props: any) => {
     const { onClick } = props;
     return (
-      <div>
-        <PiCaretRightLight />
+      <div
+        className="bg-slate-100 hover:bg-white rounded-full cursor-pointer absolute left-5 top-1/2 z-20 flex justify-center items-center p-3"
+        onClick={onClick}
+      >
+        <PiCaretLeftLight />
       </div>
     );
   };
