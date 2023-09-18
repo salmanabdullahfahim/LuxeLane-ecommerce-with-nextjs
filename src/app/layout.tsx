@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import "./css/globals.css";
 import type { Metadata } from "next";
+import Layout from "@/components/Layout";
 
 export const metadata: Metadata = {
   title: "Luxelane",
@@ -15,9 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-bodyFont text-darkText">
-        <Header />
-
-        {children}
+        <Layout>
+          <Header />
+          {children}
+        </Layout>
       </body>
     </html>
   );
