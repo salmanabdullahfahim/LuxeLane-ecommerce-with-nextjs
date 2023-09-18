@@ -5,6 +5,7 @@ import banner2 from "@/images/bannertwo.jpg";
 import banner3 from "@/images/bannerthree.jpg";
 import { PiCaretLeftLight, PiCaretRightLight } from "react-icons/pi";
 import Image from "next/image";
+import BannerText from "./BannerText";
 
 const Banner = () => {
   const PrevArrow = (props: any) => {
@@ -42,6 +43,7 @@ const Banner = () => {
             alt="banner one"
             className="w-ful h-full relative"
           />
+          <BannerText title="Outware Picks" />
         </div>
       </Slider>
     </div>
