@@ -7,6 +7,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import Image from "next/image";
 
 const Header = () => {
   const { data: session } = useSession();
@@ -47,6 +48,17 @@ const Header = () => {
             0
           </span>
         </div>
+
+        {/* Profile Image */}
+        {session && (
+          <Image
+            src={session?.user?.image as string}
+            alt="user image"
+            width={50}
+            height={50}
+            className="rounded-full object-cover"
+          />
+        )}
 
         {/* Logout */}
         {session && (
