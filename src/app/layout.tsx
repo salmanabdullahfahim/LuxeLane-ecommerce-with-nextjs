@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import "./css/globals.css";
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
+import "slick-carousel/slick/slick.css";
 
 export const metadata: Metadata = {
   title: "Luxelane",
