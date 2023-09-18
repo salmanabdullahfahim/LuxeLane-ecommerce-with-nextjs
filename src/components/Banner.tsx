@@ -11,7 +11,7 @@ const Banner = () => {
   const PrevArrow = (props: any) => {
     const { onClick } = props;
     return (
-      <div>
+      <div className="bg-slate-100 hover:bg-white rounded-full cursor-pointer">
         <PiCaretLeftLight />
       </div>
     );
@@ -37,13 +37,17 @@ const Banner = () => {
   return (
     <div className="relative">
       <Slider {...settings}>
-        <div>
-          <Image
-            src={banner1}
-            alt="banner one"
-            className="w-ful h-full relative"
-          />
+        <div className="w-ful h-full relative">
+          <Image src={banner1} alt="banner 3" />
           <BannerText title="Outware Picks" />
+        </div>
+        <div className="w-ful h-full relative">
+          <Image src={banner2} alt="banner2" />
+          <BannerText title="Seasonal Offer" />
+        </div>
+        <div className="w-ful h-full relative">
+          <Image src={banner3} alt="banner 3" />
+          <BannerText title="Only for men" />
         </div>
       </Slider>
     </div>
