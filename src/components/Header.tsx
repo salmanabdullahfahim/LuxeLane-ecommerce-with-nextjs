@@ -4,6 +4,7 @@ import Container from "./Container";
 import Logo from "./Logo";
 import { BsCart, BsSearch } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
 
 import { useSession, signIn, signOut } from "next-auth/react";
 
@@ -28,13 +29,15 @@ const Header = () => {
 
         {/* signin/signup */}
 
-        <div
-          onClick={() => signIn()}
-          className="flex justify-center items-center bg-bgLight text-gray-500 p-1.5 rounded-full border-[1px] border-gray-200 hover:border-blue-500 hover:bg-white duration-200 cursor-pointer"
-        >
-          <AiOutlineUser className="text-2xl" />
-          <p className="font-semibold text-sm">Login/SignUp</p>
-        </div>
+        {!session && (
+          <div
+            onClick={() => signIn()}
+            className="flex justify-center items-center bg-bgLight text-gray-500 p-1.5 rounded-full border-[1px] border-gray-200 hover:border-blue-500 hover:bg-white duration-200 cursor-pointer"
+          >
+            <AiOutlineUser className="text-2xl" />
+            <p className="font-semibold text-sm">Login/SignUp</p>
+          </div>
+        )}
 
         {/* Cart */}
         <div className="flex justify-center items-center bg-black hover:bg-slate-950 text-slate-100 hover:text-white rounded-full px-4 py-1.5 border-[1px] border-black hover:border-blue-500 duration-200 cursor-pointer relative">
@@ -44,6 +47,17 @@ const Header = () => {
             0
           </span>
         </div>
+
+        {/* Logout */}
+        {session && (
+          <div
+            onClick={() => signOut()}
+            className="flex justify-center items-center bg-bgLight text-gray-500 p-1.5 rounded-full border-[1px] border-gray-200 hover:border-blue-500 hover:bg-white duration-200 cursor-pointer gap-x-1 px-2"
+          >
+            <FiLogOut className="text-2xl" />
+            <p className="font-semibold text-sm">Logout</p>
+          </div>
+        )}
       </Container>
     </div>
   );
