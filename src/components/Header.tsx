@@ -1,10 +1,15 @@
+"use client";
 import React from "react";
 import Container from "./Container";
 import Logo from "./Logo";
 import { BsCart, BsSearch } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
 const Header = () => {
+  const { data: session } = useSession();
+  console.log(session);
   return (
     <div className="bg-bodyColor h-20">
       <Container className="h-full flex items-center justify-between md:justify-start md:gap-x-5">
@@ -23,7 +28,10 @@ const Header = () => {
 
         {/* signin/signup */}
 
-        <div className="flex justify-center items-center bg-bgLight text-gray-500 p-1.5 rounded-full border-[1px] border-gray-200 hover:border-blue-500 hover:bg-white duration-200 cursor-pointer">
+        <div
+          onClick={() => signIn()}
+          className="flex justify-center items-center bg-bgLight text-gray-500 p-1.5 rounded-full border-[1px] border-gray-200 hover:border-blue-500 hover:bg-white duration-200 cursor-pointer"
+        >
           <AiOutlineUser className="text-2xl" />
           <p className="font-semibold text-sm">Login/SignUp</p>
         </div>
