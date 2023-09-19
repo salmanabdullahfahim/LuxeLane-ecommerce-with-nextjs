@@ -1,6 +1,7 @@
 import React from "react";
 import { ProductProps } from "../../type";
 import Image from "next/image";
+import { calculatePercentage } from "@/helpers";
 
 const ProductData = ({ product }: ProductProps) => {
   return (
@@ -21,7 +22,17 @@ const ProductData = ({ product }: ProductProps) => {
           )}
         </div>
         <div className="border-[1px] border-slate-300 border-t-0 px-2 py-4 flex flex-col gap-y-2 bg-white rounded-b-lg">
-          <p>{product?.title}</p>
+          <p className="font-bold">{product?.title}</p>
+          <div className="flex justify-between items-center">
+            <div className="px-3 py-1 border-[1px] border-blue-500 rounded-full font-semibold">
+              <p>
+                {calculatePercentage(product?.price, product?.oldPrice)}% off
+              </p>
+            </div>
+            <div>
+              <p>{product?.oldPrice}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
