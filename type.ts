@@ -1,6 +1,6 @@
 export interface Products {
   _id: number;
-  titles: string;
+  title: string;
   isNew: boolean;
   oldPrice: number;
   price: number;
