@@ -22,15 +22,18 @@ const ProductData = ({ product }: ProductProps) => {
           )}
         </div>
         <div className="border-[1px] border-slate-300 border-t-0 px-2 py-4 flex flex-col gap-y-2 bg-white rounded-b-lg">
-          <p className="font-bold">{product?.title}</p>
+          <p className="font-semibold">{product?.title}</p>
           <div className="flex justify-between items-center">
-            <div className="px-3 py-1 border-[1px] border-blue-500 rounded-full font-semibold">
+            <div className="px-3 py-1 border-[1px] border-blue-500 rounded-full">
               <p>
                 {calculatePercentage(product?.price, product?.oldPrice)}% off
               </p>
             </div>
-            <div>
-              <p>{product?.oldPrice}</p>
+            <div className="flex gap-x-2 items-center">
+              <p className="text-slate-500 text-sm line-through">
+                ${product?.oldPrice}
+              </p>
+              <p className="font-semibold">${product?.price}</p>
             </div>
           </div>
         </div>
