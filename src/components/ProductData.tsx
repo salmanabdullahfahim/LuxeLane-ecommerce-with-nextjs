@@ -20,7 +20,7 @@ const ProductData = ({ product }: ProductProps) => {
             </span>
           )}
         </div>
-        <div>
+        <div className="border-[1px] border-slate-300 border-t-0 px-2 py-4 flex flex-col gap-y-2 bg-white rounded-b-lg">
           <p>{product?.title}</p>
         </div>
       </div>
