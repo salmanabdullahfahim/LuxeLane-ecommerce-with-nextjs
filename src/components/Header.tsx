@@ -13,7 +13,7 @@ const Header = () => {
   const { data: session } = useSession();
   console.log(session);
   return (
-    <div className="bg-bodyColor h-20">
+    <div className="bg-bodyColor h-20 top-0 sticky z-20 shadow-xl">
       <Container className="h-full flex items-center justify-between md:justify-start md:gap-x-5">
         {/* Logo */}
         <Logo />
