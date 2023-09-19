@@ -3,8 +3,14 @@ import React from "react";
 import { ProductProps } from "../../type";
 import Image from "next/image";
 import { calculatePercentage } from "@/helpers";
+import { IoIosStar } from "react-icons/io";
 
 const ProductData = ({ product }: ProductProps) => {
+  const starArray = Array.from({ length: product?.rating }, (_, index) => (
+    <span key={index} className="text-yellow-500">
+      <IoIosStar />
+    </span>
+  ));
   return (
     <div className="w-full rounded-lg overflow-hidden shadow-sm">
       <div>
@@ -42,6 +48,8 @@ const ProductData = ({ product }: ProductProps) => {
             <button className="px-4 py-2 text-sm tracking-wide bg-black hover:bg-black/80 text-white rounded-full ">
               Add to Cart
             </button>
+            {/* star */}
+            <div className="flex items-center gap-x-1">{starArray}</div>
           </div>
         </div>
       </div>
