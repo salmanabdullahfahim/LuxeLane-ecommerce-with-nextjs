@@ -3,6 +3,7 @@ import "./css/globals.css";
 import type { Metadata } from "next";
 import Layout from "@/components/Layout";
 import "slick-carousel/slick/slick.css";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Luxelane",
@@ -20,6 +21,7 @@ export default function RootLayout({
         <Layout>
           <Header />
           {children}
+          <Footer />
         </Layout>
       </body>
     </html>
