@@ -18,8 +18,8 @@ const Footer = () => {
           <Logo />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima,
-            eius eaque molestias nostrum maxime dolor! Architecto atque voluptas
-            ad modi, magni odio, minus eaque accusantium.
+            eius eaque molestias nostrum maxime dolor! Architecto atque
+            voluptas. Lorem ipsum dolor sit amet.
           </p>
 
           <div className="flex items-center gap-x-4">
