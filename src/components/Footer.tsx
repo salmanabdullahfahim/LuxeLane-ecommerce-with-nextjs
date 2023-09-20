@@ -10,6 +10,7 @@ import payment from "@/images/payment.png";
 import Container from "./Container";
 import Logo from "./Logo";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -99,6 +100,14 @@ const Footer = () => {
               </li>
             </Link>
           </ul>
+        </div>
+        <div>
+          <p className="text-md mb-2">Pay us with your trusted partner.</p>
+          <Image
+            src={payment}
+            alt="payment"
+            className="w-full h-10 object-contain"
+          />
         </div>
       </Container>
     </div>
