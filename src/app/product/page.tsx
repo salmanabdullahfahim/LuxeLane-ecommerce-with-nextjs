@@ -1,6 +1,8 @@
-import React from "react";
+type Props = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
-const ProductPage = () => {
+const ProductPage = ({ searchParams }: Props) => {
   return <div>ProductPage</div>;
 };
 
