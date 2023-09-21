@@ -1,3 +1,5 @@
+import { productData } from "@/constants/data";
+
 export const getData = async () => {
   const res = await fetch("https://fakestoreapiserver.reactbd.com/smart");
 
@@ -11,4 +13,9 @@ export const calculatePercentage = (oldPrice: any, price: any) => {
   return !!parseFloat(price) && !!parseFloat(oldPrice)
     ? (100 - (oldPrice / price) * 100).toFixed(0)
     : 0;
+};
+
+export const getSingleProduct = (_id: number) => {
+  const product = productData.find((item) => item._id === _id);
+  return product;
 };
