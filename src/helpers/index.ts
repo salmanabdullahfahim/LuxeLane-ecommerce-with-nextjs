@@ -19,3 +19,14 @@ export const getSingleProduct = (_id: number) => {
   const product = productData.find((item) => item._id === _id);
   return product;
 };
+
+export const getTrendingData = async () => {
+  const res = await fetch(
+    "https://fakestoreapiserver.reactbd.com/smarttrending"
+  );
+
+  if (!res.ok) {
+    throw new Error("Could not find the product data");
+  }
+  return res.json();
+};
