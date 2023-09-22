@@ -18,7 +18,7 @@ const ProductPage = async ({ searchParams }: Props) => {
       <Container>
         <SingleProduct product={product} />
         <div>
-          <p className="text-xl font-semibold py-1">Trending Products</p>
+          <p className="text-xl font-semibold py-1 mt-3">Trending Products</p>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
             {trendyProduct.map((item: Products) => (
               <ProductData key={item._id} product={item} />
