@@ -43,6 +43,11 @@ export const shopSlice = createSlice({
       }
       existingProduct && existingProduct.quantity--;
     },
+    deleteProduct: (state, action) => {
+      state.productData = state.productData.filter(
+        (product) => product._id !== action.payload._id
+      );
+    },
   },
 });
 
