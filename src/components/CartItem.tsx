@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Products, stateProps } from "../../type";
 import Image from "next/image";
+import { AiOutlineClose } from "react-icons/ai";
 
 const CartItem = () => {
   const { productData } = useSelector((state: stateProps) => state?.shop);
@@ -15,10 +16,15 @@ const CartItem = () => {
       </div>
 
       <div className="flex flex-col gap-y-2 mt-2">
-        {productData.map((product: Products) => (
-          <div key={product._id}>
-            <div>
-              <span></span>
+        {productData?.map((product: Products) => (
+          <div
+            key={product._id}
+            className="flex flex-col md:flex-row w-full justify-between items-center gap-4 bg-neutral-100 p-2 rounded-md"
+          >
+            <div className="flex items-center gap-x-2">
+              <span className="text-lg hover:text-red-500 cursor-pointer duration-300">
+                <AiOutlineClose />
+              </span>
               <Image
                 src={product?.image}
                 width={500}
