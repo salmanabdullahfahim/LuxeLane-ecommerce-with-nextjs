@@ -40,8 +40,9 @@ export const shopSlice = createSlice({
       );
       if (existingProduct?.quantity === 1) {
         existingProduct.quantity === 1;
+      } else {
+        existingProduct && existingProduct.quantity--;
       }
-      existingProduct && existingProduct.quantity--;
     },
     deleteProduct: (state, action) => {
       state.productData = state.productData.filter(

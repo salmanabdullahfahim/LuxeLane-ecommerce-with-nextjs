@@ -31,7 +31,7 @@ const CartItem = () => {
                 width={500}
                 height={500}
                 alt="product image"
-                className="w-20 h-20 object-cover"
+                className="w-20 h-20 object-cover rounded-md"
               />
             </div>
             <div className="flex items-center justify-start w-full md:w-auto gap-x-3 px-3 py-2  bg-neutral-200 rounded-sm">
@@ -52,8 +52,10 @@ const CartItem = () => {
                 </span>
               </div>
             </div>
-            <div className="flex ">
-              <p>Price</p>
+            <div className="flex items-end justify-start w-full md:w-1/3 md:justify-end">
+              <p className="text-lg font-semibold">
+                ${product?.price * product?.quantity}
+              </p>
             </div>
           </div>
         ))}
