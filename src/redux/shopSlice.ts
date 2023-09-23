@@ -18,14 +18,14 @@ export const shopSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const existingProduct = state.productData.find((product: Products) => {
-        product._id === action.payload._id;
-      });
+      const existingProduct = state.productData.find(
+        (product: Products) => product._id === action.payload._id
+      );
       if (existingProduct) {
         existingProduct.quantity += action.payload.quantity;
+      } else {
+        state.productData.push(action.payload);
       }
-
-      state.productData.push(action.payload);
     },
   },
 });
