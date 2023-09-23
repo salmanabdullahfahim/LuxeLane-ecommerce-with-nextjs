@@ -8,10 +8,13 @@ import { FiLogOut } from "react-icons/fi";
 
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
+import { useSelector } from "react-redux";
+import { stateProps } from "../../type";
 
 const Header = () => {
   const { data: session } = useSession();
-
+  const { productData } = useSelector((state: stateProps) => state.shop);
+  console.log(productData);
   return (
     <div className="bg-bodyColor h-20 top-0 sticky z-20 shadow-xl">
       <Container className="h-full flex items-center justify-between md:justify-start md:gap-x-5">
@@ -45,7 +48,7 @@ const Header = () => {
           <BsCart className="text-xl" />
           <p className="font-semibold text-sm">$0.00</p>
           <span className="bg-white rounded-full text-blue-600 text-xs font-semibold absolute -right-2 -top-1 w-5 h-5 flex justify-center items-center shadow-xl shadow-black">
-            0
+            {productData ? productData.length : 0}
           </span>
         </div>
 
