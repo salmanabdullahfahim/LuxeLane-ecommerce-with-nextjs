@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Products, stateProps } from "../../type";
 import Image from "next/image";
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import { decreaseQuantity, increaseQuantity } from "@/redux/shopSlice";
+import {
+  decreaseQuantity,
+  deleteProduct,
+  increaseQuantity,
+} from "@/redux/shopSlice";
 
 const CartItem = () => {
   const { productData } = useSelector((state: stateProps) => state?.shop);
@@ -23,7 +27,10 @@ const CartItem = () => {
             className="flex flex-col md:flex-row w-full justify-between items-center gap-4 bg-neutral-100 p-2 rounded-md"
           >
             <div className="flex items-center gap-x-3 w-full md:w-1/3">
-              <span className="text-lg hover:text-red-500 cursor-pointer duration-300">
+              <span
+                onClick={() => dispatch(deleteProduct(product))}
+                className="text-lg hover:text-red-500 cursor-pointer duration-300"
+              >
                 <AiOutlineClose />
               </span>
               <Image
