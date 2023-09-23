@@ -46,7 +46,7 @@ const Banner = () => {
     <div className="relative">
       <Slider {...settings}>
         <div className="w-ful h-full relative">
-          <Image src={banner2} alt="banner 3" />
+          <Image src={banner2} alt="banner 3" priority />
           <BannerText title="Outware Picks" />
         </div>
         <div className="w-ful h-full relative">
