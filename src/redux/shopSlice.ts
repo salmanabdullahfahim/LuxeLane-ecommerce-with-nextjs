@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Products } from "../../type";
 
 const initialState = {
   productData: [],
@@ -11,7 +12,14 @@ export const shopSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      state.productData = action.payload;
+      const existingProduct = state.productData.find((product: Products) => {
+        product._id === action.payload._id;
+      });
+      if (existingProduct) {
+        existingProduct.quantity += action.payload.quantity;
+      }
+
+      state.productData.push(action.payload);
     },
   },
 });
