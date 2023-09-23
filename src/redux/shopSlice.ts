@@ -48,6 +48,9 @@ export const shopSlice = createSlice({
         (product) => product._id !== action.payload._id
       );
     },
+    resetCart: (state) => {
+      state.productData = [];
+    },
   },
 });
 
