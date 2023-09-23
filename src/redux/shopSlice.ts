@@ -27,6 +27,22 @@ export const shopSlice = createSlice({
         state.productData.push(action.payload);
       }
     },
+
+    increaseQuantity: (state, action) => {
+      const existingProduct = state.productData.find(
+        (product: Products) => product._id === action.payload._id
+      );
+      existingProduct && existingProduct.quantity++;
+    },
+    decreaseQuantity: (state, action) => {
+      const existingProduct = state.productData.find(
+        (product: Products) => product._id === action.payload._id
+      );
+      if (existingProduct?.quantity === 1) {
+        existingProduct.quantity === 1;
+      }
+      existingProduct && existingProduct.quantity--;
+    },
   },
 });
 
