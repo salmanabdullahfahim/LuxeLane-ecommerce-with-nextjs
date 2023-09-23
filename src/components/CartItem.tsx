@@ -2,11 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Products, stateProps } from "../../type";
 import Image from "next/image";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 const CartItem = () => {
   const { productData } = useSelector((state: stateProps) => state?.shop);
-  console.log(productData);
   return (
     <div>
       <div className="flex items-center justify-between bg-neutral-100 shadow-md p-2 font-semibold">
@@ -21,7 +20,7 @@ const CartItem = () => {
             key={product._id}
             className="flex flex-col md:flex-row w-full justify-between items-center gap-4 bg-neutral-100 p-2 rounded-md"
           >
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center gap-x-3 w-full md:w-1/3">
               <span className="text-lg hover:text-red-500 cursor-pointer duration-300">
                 <AiOutlineClose />
               </span>
@@ -32,6 +31,21 @@ const CartItem = () => {
                 alt="product image"
                 className="w-20 h-20 object-cover"
               />
+            </div>
+            <div className="flex items-center justify-start w-full md:w-auto gap-x-3 px-3 py-2  bg-neutral-200 rounded-sm">
+              <p>Quantity</p>
+              <div className="flex items-center justify-between text-lg w-20">
+                <span className="cursor-pointer duration-200">
+                  <AiOutlineMinus />
+                </span>
+                <span className="font-semibold">{product?.quantity}</span>
+                <span className="cursor-pointer duration-200">
+                  <AiOutlinePlus />
+                </span>
+              </div>
+            </div>
+            <div className="flex ">
+              <p>Price</p>
             </div>
           </div>
         ))}
