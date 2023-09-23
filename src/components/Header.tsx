@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Container from "./Container";
 import Logo from "./Logo";
 import { BsCart, BsSearch } from "react-icons/bs";
@@ -9,12 +9,22 @@ import { FiLogOut } from "react-icons/fi";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import { useSelector } from "react-redux";
-import { stateProps } from "../../type";
+import { Products, stateProps } from "../../type";
 
 const Header = () => {
   const { data: session } = useSession();
   const { productData } = useSelector((state: stateProps) => state.shop);
-  console.log(productData);
+
+  const [netAmount, setNetAmount] = useState(0);
+
+  useEffect(() => {
+    let amount = 0;
+    productData.map((product: Products) => {
+      amount += product.price * product.quantity;
+      return;
+    });
+    setNetAmount(amount);
+  }, [productData]);
   return (
     <div className="bg-bodyColor h-20 top-0 sticky z-20 shadow-xl">
       <Container className="h-full flex items-center justify-between md:justify-start md:gap-x-5">
@@ -46,7 +56,7 @@ const Header = () => {
         {/* Cart */}
         <div className="flex justify-center items-center bg-black hover:bg-slate-950 text-slate-100 hover:text-white rounded-full px-4 py-1.5 border-[1px] border-black hover:border-blue-500 duration-200 cursor-pointer relative">
           <BsCart className="text-xl" />
-          <p className="font-semibold text-sm">$0.00</p>
+          <p className="font-semibold text-sm">${netAmount}</p>
           <span className="bg-white rounded-full text-blue-600 text-xs font-semibold absolute -right-2 -top-1 w-5 h-5 flex justify-center items-center shadow-xl shadow-black">
             {productData ? productData.length : 0}
           </span>
