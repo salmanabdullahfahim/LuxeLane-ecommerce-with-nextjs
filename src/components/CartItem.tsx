@@ -1,11 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Products, stateProps } from "../../type";
 import Image from "next/image";
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { decreaseQuantity, increaseQuantity } from "@/redux/shopSlice";
 
 const CartItem = () => {
   const { productData } = useSelector((state: stateProps) => state?.shop);
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="flex items-center justify-between bg-neutral-100 shadow-md p-2 font-semibold">
@@ -35,11 +37,17 @@ const CartItem = () => {
             <div className="flex items-center justify-start w-full md:w-auto gap-x-3 px-3 py-2  bg-neutral-200 rounded-sm">
               <p>Quantity</p>
               <div className="flex items-center justify-between text-lg w-20">
-                <span className="cursor-pointer duration-200">
+                <span
+                  onClick={() => dispatch(decreaseQuantity(product))}
+                  className="cursor-pointer duration-200"
+                >
                   <AiOutlineMinus />
                 </span>
                 <span className="font-semibold">{product?.quantity}</span>
-                <span className="cursor-pointer duration-200">
+                <span
+                  onClick={() => dispatch(increaseQuantity(product))}
+                  className="cursor-pointer duration-200"
+                >
                   <AiOutlinePlus />
                 </span>
               </div>
