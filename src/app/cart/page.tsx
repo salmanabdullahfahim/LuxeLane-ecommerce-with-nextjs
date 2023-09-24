@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { stateProps } from "../../../type";
 import CartItem from "@/components/CartItem";
 import { resetCart } from "@/redux/shopSlice";
+import PaymentForm from "@/components/PaymentSection";
 
 const CartPage = () => {
   const { productData } = useSelector((state: stateProps) => state?.shop);
@@ -24,6 +25,7 @@ const CartPage = () => {
             Reset Cart
           </button>
         </div>
+        <PaymentForm />
       </div>
     </Container>
   );
