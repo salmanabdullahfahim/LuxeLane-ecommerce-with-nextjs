@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 import { useSession } from "next-auth/react";
 import { Products, stateProps } from "../../type";
+import { loadStripe } from "@stripe/stripe-js";
 
 const PaymentForm = () => {
   const { productData, userInfo } = useSelector(
@@ -24,6 +25,28 @@ const PaymentForm = () => {
   }, [productData]);
 
   const { data: session } = useSession();
+
+  //stripe payment
+
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
+
+  const handlePayment = async () => {
+    const response = await fetch("http://localhost:3000/api/payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: productData,
+        email: session?.user?.email,
+      }),
+    });
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(data);
+    }
+  };
 
   return (
     <div className="w-full bg-white p-4">
@@ -47,7 +70,10 @@ const PaymentForm = () => {
         </div>
       </div>
       {userInfo ? (
-        <button className="bg-black text-slate-100 mt-4 py-3 px-6 hover:bg-black/80 cursor-pointer duration-200">
+        <button
+          onClick={handlePayment}
+          className="bg-black text-slate-100 mt-4 py-3 px-6 hover:bg-black/80 cursor-pointer duration-200"
+        >
           Proceed to checkout
         </button>
       ) : (
