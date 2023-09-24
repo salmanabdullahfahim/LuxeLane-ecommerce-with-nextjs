@@ -58,7 +58,7 @@ export const shopSlice = createSlice({
     deleteUser: (state) => {
       state.userInfo = null;
     },
-    orderData: (state, action) => {
+    saveOrder: (state, action) => {
       state.orderData = action.payload;
     },
     resetOrder: (state) => {
@@ -75,6 +75,8 @@ export const {
   resetCart,
   addUser,
   deleteUser,
+  saveOrder,
+  resetOrder,
 } = shopSlice.actions;
 
 export default shopSlice.reducer;
