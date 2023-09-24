@@ -55,7 +55,7 @@ export const shopSlice = createSlice({
     addUser: (state, action) => {
       state.userInfo = action.payload;
     },
-    deleteUser: (state, action) => {
+    deleteUser: (state) => {
       state.userInfo = null;
     },
   },
