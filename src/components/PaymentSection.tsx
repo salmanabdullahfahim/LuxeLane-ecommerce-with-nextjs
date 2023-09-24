@@ -37,13 +37,13 @@ const PaymentForm = () => {
       <div className="border-b-[1px] border-b-slate-300 py-2">
         <div className="max-w-lg flex items-center justify-between">
           <p className="uppercase font-medium">Shipping</p>
-          <p>$ 20</p>
+          <p>{netAmount > 0 && "$ 20"}</p>
         </div>
       </div>
       <div className="border-b-[1px] border-b-slate-300 py-2">
         <div className="max-w-lg flex items-center justify-between">
           <p className="uppercase font-medium">Total Price</p>
-          <p>${netAmount + 20}</p>
+          <p>{netAmount > 0 && netAmount + 20}</p>
         </div>
       </div>
       {userInfo ? (
