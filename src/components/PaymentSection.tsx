@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { Products, stateProps } from "../../type";
 import { loadStripe } from "@stripe/stripe-js";
+import { resetCart, saveOrder } from "@/redux/shopSlice";
 
 const PaymentForm = () => {
   const { productData, userInfo } = useSelector(
@@ -45,7 +46,11 @@ const PaymentForm = () => {
     const data = await response.json();
 
     if (response.ok) {
-      console.log(data);
+      await dispatch(saveOrder({ order: productData, id: data.id }));
+      stripe?.redirectToCheckout({ sessionId: data.id });
+      dispatch(resetCart());
+    } else {
+      throw new Error("Failed to payment");
     }
   };
 
