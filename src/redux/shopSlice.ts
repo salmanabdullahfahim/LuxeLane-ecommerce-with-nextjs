@@ -52,6 +52,12 @@ export const shopSlice = createSlice({
     resetCart: (state) => {
       state.productData = [];
     },
+    addUser: (state, action) => {
+      state.userInfo = action.payload;
+    },
+    deleteUser: (state, action) => {
+      state.userInfo = null;
+    },
   },
 });
 
@@ -61,6 +67,8 @@ export const {
   decreaseQuantity,
   deleteProduct,
   resetCart,
+  addUser,
+  deleteUser,
 } = shopSlice.actions;
 
 export default shopSlice.reducer;
