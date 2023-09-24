@@ -58,6 +58,12 @@ export const shopSlice = createSlice({
     deleteUser: (state) => {
       state.userInfo = null;
     },
+    orderData: (state, action) => {
+      state.orderData = action.payload;
+    },
+    resetOrder: (state) => {
+      state.orderData = [];
+    },
   },
 });
 

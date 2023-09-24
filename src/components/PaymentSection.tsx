@@ -31,6 +31,7 @@ const PaymentForm = () => {
   const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
 
   const handlePayment = async () => {
+    const stripe = await stripePromise;
     const response = await fetch("http://localhost:3000/api/payment", {
       method: "POST",
       headers: {
