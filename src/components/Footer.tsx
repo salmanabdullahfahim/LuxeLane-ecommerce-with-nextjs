@@ -46,7 +46,7 @@ const Footer = () => {
           <p className="text-lg">Latest Products</p>
           <ul className="mt-2 flex flex-col gap-y-2 text-sm font-light">
             <li className="flex flex-col">
-              <span className="text-slate-100 hover:text-blue-400 cursor-pointer">
+              <span className="text-slate-200 hover:text-blue-400 cursor-pointer">
                 When the new product is launch
               </span>
               <span className="text-blue-400">November 12, 2023</span>
