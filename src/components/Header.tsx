@@ -98,7 +98,7 @@ const Header = () => {
             className="flex justify-center items-center bg-bgLight text-gray-500 p-1.5 rounded-full border-[1px] border-gray-200 hover:border-blue-500 hover:bg-white duration-200 cursor-pointer gap-x-1 px-2"
           >
             <FiLogOut className="text-2xl" />
-            <p className="font-semibold text-sm">Logout</p>
+            <p className="font-semibold text-sm">SignOut</p>
           </div>
         )}
       </Container>
