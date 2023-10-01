@@ -87,7 +87,7 @@ const Header = () => {
             alt="user image"
             width={50}
             height={50}
-            className="rounded-full object-cover"
+            className="rounded-full object-contain"
           />
         )}
 
