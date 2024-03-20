@@ -1,1 +1,1 @@
-# LuxeLane Ecommerce with Next.js
+# LuxeLane E-commerce with Next.js--
